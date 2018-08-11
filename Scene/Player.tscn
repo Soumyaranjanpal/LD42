@@ -1,77 +1,32 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Script/Player.gd" type="Script" id=1]
+[ext_resource path="res://Assets/tile.png" type="Texture" id=2]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 32.0
+extents = Vector2( 16, 16 )
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="KinematicBody2D" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
-collision/safe_margin = 0.09
+collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Pause" ]
+_sections_unfolded = [ "Collision" ]
+collide_with_black = false
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-z_index = 1
-_sections_unfolded = [ "Z Index" ]
+modulate = Color( 0.78125, 0, 0, 1 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 shape = SubResource( 1 )
-
-[node name="FallSound" type="AudioStreamPlayer2D" parent="." index="2"]
-
-stream = null
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-max_distance = 2000.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
-
-[node name="HitSound" type="AudioStreamPlayer2D" parent="." index="3"]
-
-stream = null
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-max_distance = 2000.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
-
-[node name="Paint1" type="AudioStreamPlayer" parent="." index="4"]
-
-stream = null
-volume_db = -15.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
-
-[node name="Paint2" type="AudioStreamPlayer" parent="." index="5"]
-
-stream = null
-volume_db = -15.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
-
-[node name="Paint3" type="AudioStreamPlayer" parent="." index="6"]
-
-stream = null
-volume_db = -15.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
 

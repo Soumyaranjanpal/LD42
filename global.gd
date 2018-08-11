@@ -7,14 +7,18 @@ var hovered_objs = []
 var camera
 var player = null
 
+var tilemap_collide_black = null
+var tilemap_collide_white = null
+
 #stats
 var nb_restart = 0
 var time = 0
+var nb_collision = 0
 
 #levels
-var levels = ['res://Levels/TitleScreen.tscn', \
+var levels = ['res://Levels/Level1.tscn', \
 			'res://Levels/Level1.tscn', \
-			'res://Levels/EndScreen.tscn']
+			'res://Levels/Level1.tscn']
 
 var levels_names = [ '', \
 			'1.0', \
@@ -46,11 +50,15 @@ func next_scene():
 		current_level = 0
 	if current_level == 1:
 		time = 0
-	current_color = levels_colors[current_level][0]
 	
 	call_deferred("_deferred_goto_scene", levels[current_level])
 
-
+func get_tilemap(collide_with_black):
+	if collide_with_black:
+		return tilemap_collide_black
+	else:
+		return tilemap_collide_white
+	
 func _deferred_goto_scene(path):
 
     # Immediately free the current scene,

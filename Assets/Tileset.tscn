@@ -11,13 +11,7 @@ modulate = Color( 0.773438, 0.773438, 0.773438, 1 )
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Sprite3" type="Sprite" parent="." index="1"]
-
-position = Vector2( 0, 130 )
-texture = ExtResource( 1 )
-_sections_unfolded = [ "Visibility" ]
-
-[node name="Sprite2" type="Sprite" parent="." index="2"]
+[node name="Sprite2" type="Sprite" parent="." index="1"]
 
 position = Vector2( 0, 64 )
 texture = ExtResource( 1 )
@@ -32,19 +26,20 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2/StaticBody2D" index="0"]
 
 build_mode = 0
 polygon = PoolVector2Array( -32, -32, -32, 32, 32, 32, 32, -32 )
 
-[node name="Sprite4" type="Sprite" parent="." index="3"]
+[node name="Sprite3" type="Sprite" parent="." index="2"]
 
-position = Vector2( 0, 194 )
+position = Vector2( 0, 128 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Visibility" ]
+_sections_unfolded = [ "Transform" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite4" index="0"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite3" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -53,6 +48,29 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite3/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -32, -32, -32, 32, 32, 32, 32, -32 )
+
+[node name="Sprite4" type="Sprite" parent="." index="3"]
+
+position = Vector2( 0, 192 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite4" index="0"]
+
+input_pickable = false
+collision_layer = 2
+collision_mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite4/StaticBody2D" index="0"]
 
@@ -64,5 +82,21 @@ polygon = PoolVector2Array( -32, -32, -32, 32, 32, 32, 32, -32 )
 position = Vector2( 0, 258 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Visibility" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite5" index="0"]
+
+input_pickable = false
+collision_layer = 2
+collision_mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite5/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -32, -32, -32, 32, 32, 32, 32, -32 )
 
 

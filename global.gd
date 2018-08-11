@@ -5,11 +5,13 @@ var current_scene
 var mouse
 var hovered_objs = []
 var camera
-var player = null
+var player_black = null
+var player_white = null
 
 var tilemap_collide_black = null
 var tilemap_collide_white = null
-var end_taken = 0
+var end_taken_black = 0
+var end_taken_white = 0
 
 #stats
 var nb_restart = 0
@@ -17,14 +19,14 @@ var time = 0
 var nb_collision = 0
 
 #levels
-var levels = ['res://Levels/Level1.tscn', 'res://Levels/Level11.tscn', 'res://Levels/Level12.tscn', 'res://Levels/Level13.tscn', 'res://Levels/Level14.tscn', 'res://Levels/Level15.tscn'\
-			]
+var levels = ['res://Levels/Level10.tscn', 'res://Levels/Level11.tscn', 'res://Levels/Level12.tscn', 'res://Levels/Level13.tscn', 'res://Levels/Level14.tscn', 'res://Levels/Level15.tscn'\
+			, 'res://Levels/Level20.tscn', 'res://Levels/Level21.tscn' \
+			, 'res://Levels/Level30.tscn', 'res://Levels/Level34.tscn' \
+			, 'res://Levels/Level40.tscn', 'res://Levels/Level42.tscn']
 
 var levels_names = [ '', '', '', \
 			'1.0', \
-			'']
-			
-var levels_end_takens = [1, 1, 2, 2, 2, 2]
+			'', '']
 
 #functions
 func _ready():
@@ -43,9 +45,6 @@ func _process(delta):
 func get_level_name():
 	return levels_names[current_level]
 
-func level_complete():
-	return end_taken == levels_end_takens[current_level]
-
 func next_scene():
 	current_level = current_level + 1
 	if current_level >= len(levels):
@@ -60,7 +59,13 @@ func get_tilemap(collide_with_black):
 		return tilemap_collide_black
 	else:
 		return tilemap_collide_white
-	
+
+func get_nb_end_taken(collide_with_black):
+	if collide_with_black:
+		return end_taken_black
+	else:
+		return end_taken_white
+
 func _deferred_goto_scene(path):
 
     # Immediately free the current scene,
@@ -78,3 +83,10 @@ func _deferred_goto_scene(path):
 
     # optional, to make it compatible with the SceneTree.change_scene() API
     get_tree().set_current_scene( current_scene )
+    
+    #post
+    post_load_scene()
+
+func post_load_scene():
+	end_taken_white = 0
+	end_taken_black = 0

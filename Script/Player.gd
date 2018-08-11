@@ -18,6 +18,7 @@ var direction = 0
 var jump_press_time = 0
 var jump_press_duration = 0.8
 
+var gravity = Vector2()
 var gravity_dir = 1
 var upside_down = false
 var gravity_areas = []
@@ -35,14 +36,16 @@ onready var flux = get_node("/root/flux")
 onready var global = get_node("/root/global")
 
 func _ready():
-	global.player = weakref(self)
 	if not collide_with_black:
+		global.player_white = weakref(self)
 		$Sprite.texture = load("res://Assets/tile.png")
 		player_input_name = "P2"
 		set_collision_layer_bit(1, true)
 		set_collision_mask_bit(1, true)
 		set_collision_layer_bit(0, false)
 		set_collision_mask_bit(0, false)
+	else:
+		global.player_black = weakref(self)
 	
 	extents = $CollisionShape2D.get_shape().get_extents()
 	extents_list.append(extents)
@@ -61,7 +64,7 @@ func _physics_process(delta):
 	### MOVEMENT ###
 
 	# Apply Gravity
-	var gravity = Vector2(0,0)
+	gravity = Vector2(0,0)
 	for area in gravity_areas:
 		gravity += area.get_gravity()
 	linear_vel += delta * gravity * gravity_dir
@@ -76,7 +79,7 @@ func _physics_process(delta):
 	if is_on_wall():
 		if global.camera.get_ref():
 			global.nb_collision += 1
-			global.camera.get_ref().shake(0.2, 15, 5)
+			global.camera.get_ref().shake(0.2, 15, 2.5)
 
 	linear_vel = move_and_slide(Vector2(0, linear_vel.y), FLOOR_NORMAL, SLOPE_SLIDE_STOP)
 	linear_vel.x = linear_velx.x
@@ -84,16 +87,16 @@ func _physics_process(delta):
 	# Detect Floor
 	if is_on_floor():
 		if not on_floor and global.camera.get_ref():
-			if onair_time > 0.3:
+			if onair_time > 0.4:
 				global.nb_collision += 1
-				global.camera.get_ref().shake(0.2, 15, onair_time * 5)
+				global.camera.get_ref().shake(0.2, 15, onair_time * 2.5)
 		onair_time = 0		
 		
 	if is_on_ceiling():
 		if not on_floor and global.camera.get_ref():
-			if onair_time > 0.3:
+			if onair_time > 0.4:
 				global.nb_collision += 1
-				global.camera.get_ref().shake(0.2, 15, onair_time * 5)
+				global.camera.get_ref().shake(0.2, 15, onair_time * 2.5)
 		onair_time = 0
 
 
@@ -119,15 +122,15 @@ func _physics_process(delta):
 	linear_vel.x = lerp(linear_vel.x, target_speed, 0.1)
 	
 	# Vectical Movement
-	if is_on_floor():
+	if (is_on_floor() and sign(gravity.y) == 1) or (is_on_ceiling() and sign(gravity.y) == -1):
 		if Input.is_action_just_pressed(player_input_name + '_up'):
-			linear_vel.y = -150
+			linear_vel.y = -150 * sign(gravity.y)
 			jump_press_time = 0
-	if not is_on_floor():
+	if not is_on_floor() and not is_on_ceiling():
 		if Input.is_action_pressed(player_input_name + '_up'):
 			jump_press_time += delta
-			if jump_press_time < jump_press_duration and linear_vel.y < 0:
-				linear_vel.y += -25 * (1.0 - jump_press_time / jump_press_duration)
+			if jump_press_time < jump_press_duration and (linear_vel.y * sign(gravity.y) < 0):
+				linear_vel.y += -25 * sign(gravity.y) * (1.0 - jump_press_time / jump_press_duration)
 			else:
 				jump_press_time = jump_press_duration
 	
@@ -153,7 +156,8 @@ func check_colliding_tiles():
 			center_colliding_tiles.append(tile)
 	
 	var center_tile = tilemap.world_to_map(origin)
-	if not center_colliding_tiles.has(center_tile):
+	var center_bottom_tile = tilemap.world_to_map(origin + Vector2(0, extents.y * sign(gravity.y)))
+	if center_tile == center_bottom_tile and not center_colliding_tiles.has(center_tile):
 		center_colliding_tiles.append(center_tile)
 	colliding_tiles = center_colliding_tiles
 	

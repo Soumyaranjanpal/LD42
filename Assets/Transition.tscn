@@ -4,7 +4,7 @@
 [ext_resource path="res://Script/UI_token.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Tileset.tres" type="TileSet" id=3]
 
-[node name="Transition" type="Node2D" index="0"]
+[node name="Transition" type="Node2D"]
 
 z_index = 9
 _sections_unfolded = [ "Z Index" ]

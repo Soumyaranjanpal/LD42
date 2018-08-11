@@ -172,10 +172,10 @@ func inverse_tile(tilemap, tile):
 	
 	var tile_id = tilemap.get_cell(tile.x, tile.y)
 	if tile_id == 3: #white no collide (black tilemap)
-		tilemap_black.set_cell(tile.x, tile.y, 2)
+		tilemap_black.set_cell_and_shadow(tile, 2)
 		tilemap_white.set_cell(tile.x, tile.y, 4)
 	elif tile_id == 4: #black no collide (white tilemap)
-		tilemap_black.set_cell(tile.x, tile.y, 3)
+		tilemap_black.set_cell_and_shadow(tile, 3)
 		tilemap_white.set_cell(tile.x, tile.y, 1)
 	
 	

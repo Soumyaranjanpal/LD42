@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/tileblack.png" type="Texture" id=2]
 [ext_resource path="res://Assets/tile_shadow_right.png" type="Texture" id=3]
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node" index="0"]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Script/Transition.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://Script/TileMap.gd" type="Script" id=3]
-[ext_resource path="res://Scene/NormalGravityArea.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scene/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Script/Camera2D.gd" type="Script" id=6]
-[ext_resource path="res://Assets/Transition.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scene/ExitArea.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/ShadowTileset.tres" type="TileSet" id=4]
+[ext_resource path="res://Scene/NormalGravityArea.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scene/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Script/Camera2D.gd" type="Script" id=7]
+[ext_resource path="res://Assets/Transition.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scene/ExitArea.tscn" type="PackedScene" id=9]
 
 [node name="stage" type="Node"]
 
@@ -62,22 +63,42 @@ __meta__ = {
 }
 collide_with_black = true
 
+[node name="TileMap" type="TileMap" parent="TileMapBlackCollide" index="0"]
+
+mode = 0
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
+
 [node name="GravityArea" type="Node2D" parent="." index="2"]
 
 visible = false
 
-[node name="NormalGravityArea" parent="GravityArea" index="0" instance=ExtResource( 4 )]
+[node name="NormalGravityArea" parent="GravityArea" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 516.012, 304.109 )
 scale = Vector2( 33, 19 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="PlayerBlack" parent="." index="3" instance=ExtResource( 5 )]
+[node name="PlayerBlack" parent="." index="3" instance=ExtResource( 6 )]
 
 position = Vector2( 96.7951, 354.101 )
 collide_with_black = true
 
-[node name="PlayerWhite" parent="." index="4" instance=ExtResource( 5 )]
+[node name="PlayerWhite" parent="." index="4" instance=ExtResource( 6 )]
 
 position = Vector2( 928, 544 )
 
@@ -105,29 +126,29 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Transition" parent="Camera2D" index="0" instance=ExtResource( 7 )]
+[node name="Transition" parent="Camera2D" index="0" instance=ExtResource( 8 )]
 
 [node name="ExitAreas" type="Node2D" parent="." index="6"]
 
-[node name="ExitAreaBlack" parent="ExitAreas" index="0" instance=ExtResource( 8 )]
+[node name="ExitAreaBlack" parent="ExitAreas" index="0" instance=ExtResource( 9 )]
 
 position = Vector2( 96, 96 )
 black_player_end = true
 
-[node name="ExitAreaBlack2" parent="ExitAreas" index="1" instance=ExtResource( 8 )]
+[node name="ExitAreaBlack2" parent="ExitAreas" index="1" instance=ExtResource( 9 )]
 
 position = Vector2( 672, 96 )
 black_player_end = true
 number_id = 2
 
-[node name="ExitAreaWhite" parent="ExitAreas" index="2" instance=ExtResource( 8 )]
+[node name="ExitAreaWhite" parent="ExitAreas" index="2" instance=ExtResource( 9 )]
 
 position = Vector2( 416, 160 )
 
-[node name="ExitAreaWhite2" parent="ExitAreas" index="3" instance=ExtResource( 8 )]
+[node name="ExitAreaWhite2" parent="ExitAreas" index="3" instance=ExtResource( 9 )]
 
 position = Vector2( 864, 160 )
 number_id = 2

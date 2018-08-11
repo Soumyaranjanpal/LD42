@@ -11,8 +11,9 @@ var collected = false
 func _ready():
 	global.end_taken = 0
 	if black_player_end:
-		$ExitArea/Sprite.modulate *= 0.3
-		$ExitArea/Sprite.modulate.a = 1.0
+		$ExitArea/Sprite.modulate = Color(100.0/255.0, 0, 211.0/255.0, 1.0);
+	else:
+		$ExitArea/Sprite.modulate = Color(200.0/255.0, 0, 211.0/255.0, 1.0);
 		
 func _on_ExitArea_body_entered(body):
 	if body is player and body.collide_with_black == black_player_end:

@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 32, 32 )
 
-[node name="ExitAreaNode" type="Node2D"]
+[node name="ExitAreaNode" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform" ]
@@ -31,12 +31,13 @@ _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="ExitArea" index="0"]
 
-modulate = Color( 0, 1, 0.273438, 1 )
+modulate = Color( 0.394653, 0, 0.828125, 1 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea" index="1"]
 
+visible = false
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 

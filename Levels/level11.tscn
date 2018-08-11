@@ -9,7 +9,7 @@
 [ext_resource path="res://Assets/Transition.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scene/ExitArea.tscn" type="PackedScene" id=8]
 
-[node name="stage" type="Node" index="0"]
+[node name="stage" type="Node"]
 
 script = ExtResource( 1 )
 

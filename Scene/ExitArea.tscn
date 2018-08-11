@@ -1,15 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Script/ExitArea.gd" type="Script" id=1]
-[ext_resource path="res://Assets/tile.png" type="Texture" id=2]
-[ext_resource path="res://Assets/visitor64.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Assets/tile_shadow.png" type="Texture" id=2]
+[ext_resource path="res://Assets/tile.png" type="Texture" id=3]
+[ext_resource path="res://Assets/visitor64.tres" type="DynamicFont" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 32, 32 )
 
-[node name="ExitAreaNode" type="Node2D"]
+[node name="ExitAreaNode" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform" ]
@@ -31,13 +32,21 @@ audio_bus_override = false
 audio_bus_name = "Master"
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="ExitArea" index="0"]
+[node name="Sprite3" type="Sprite" parent="ExitArea" index="0"]
+
+modulate = Color( 0.33136, 0, 0.695313, 1 )
+position = Vector2( 4, 2 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="Sprite" type="Sprite" parent="ExitArea" index="1"]
 
 modulate = Color( 0.394653, 0, 0.828125, 1 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea" index="2"]
 
 visible = false
 shape = SubResource( 1 )
@@ -59,7 +68,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.970093, 0.921875, 1, 1 )
 custom_colors/font_color_shadow = Color( 0.0585938, 0, 0.117188, 1 )
 text = "1"

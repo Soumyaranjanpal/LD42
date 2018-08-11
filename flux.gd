@@ -107,42 +107,37 @@ class Tween:
 			object = obj.get_ref()
 		if mode == 'absolute':
 			for key in varss:
-				var x = null
-				match key:
-					"x":
-						x = object.get_transform().get_origin().x
-					"y":
-						x = object.get_transform().get_origin().y
-					"z":
-						x = object.get_transform().get_origin().z
-					"ui_x":
-						x = object.rect_position.x
-					"ui_y":
-						x = object.rect_position.y
-					"angle":
-						x = 0
-					_:
-						x = object[key]
+				var x = matching(key, object)
 				vars[key] = { start = x, diff = varss[key] - x}	
 		else:
 			for key in varss:
-				var x = null
-				match key:
-					"x":
-						x = object.get_transform().get_origin().x
-					"y":
-						x = object.get_transform().get_origin().y
-					"z":
-						x = object.get_transform().get_origin().z
-					"ui_x":
-						x = object.rect_position.x
-					"ui_y":
-						x = object.rect_position.y
-					"angle":
-						x = 0
-					_:
-						x = object[key]
+				var x = matching(key, object)
 				vars[key] = { start = x, diff = varss[key]}
+
+	func matching(key, object):
+		var x = null
+		match key:
+			"x":
+				x = object.get_transform().get_origin().x
+			"y":
+				x = object.get_transform().get_origin().y
+			"z":
+				x = object.get_transform().get_origin().z
+			"ui_x":
+				x = object.rect_position.x
+			"ui_y":
+				x = object.rect_position.y
+			"angle":
+				x = 0
+			"scale_x":
+				x = object.scale.x
+			"scale_y":
+				x = object.scale.y
+			"modulate_a":
+				x = object.modulate.a
+			_:
+				x = object[key]
+		return x
 
 	func after(time, vars, mode='relative'):
 		var t = flux.Tween.new(self.obj, time, vars, mode, flux)
@@ -230,6 +225,12 @@ func update(deltatime):
 						t.obj.get_ref().rect_position.y += (xvDif - t.var_prev[k])
 					"angle":
 						t.obj.get_ref().rotate(xvDif - t.var_prev[k])
+					"scale_x":
+						t.obj.get_ref().scale.x += (xvDif - t.var_prev[k])
+					"scale_y":
+						t.obj.get_ref().scale.y += (xvDif - t.var_prev[k])
+					"modulate_a":
+						t.obj.get_ref().modulate.a += (xvDif - t.var_prev[k])
 					_:
 						t.obj.get_ref()[k] += xvDif - t.var_prev[k]
 				match k:

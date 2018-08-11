@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Script/GravityArea.gd" type="Script" id=1]
-[ext_resource path="res://Assets/tile.png" type="Texture" id=2]
-[ext_resource path="res://Assets/visitor64.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Script/GravityAreaAnim.gd" type="Script" id=2]
+[ext_resource path="res://Assets/tile.png" type="Texture" id=3]
+[ext_resource path="res://Assets/visitor64.tres" type="DynamicFont" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -27,26 +28,27 @@ collision_layer = 3
 collision_mask = 3
 audio_bus_override = false
 audio_bus_name = "Master"
+script = ExtResource( 2 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="GravityArea" index="0"]
 
 modulate = Color( 0.828125, 0, 0.659912, 1 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Sprite2" type="Sprite" parent="GravityArea" index="1"]
 
 modulate = Color( 0.7052, 0, 0.828125, 1 )
 rotation = 0.523599
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Sprite3" type="Sprite" parent="GravityArea" index="2"]
 
 modulate = Color( 0.47229, 0, 0.828125, 1 )
 rotation = 1.0472
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GravityArea" index="3"]
@@ -76,7 +78,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.970093, 0.921875, 1, 1 )
 custom_colors/font_color_shadow = Color( 0.0585938, 0, 0.117188, 1 )
 text = "g"

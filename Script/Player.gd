@@ -53,9 +53,6 @@ func _ready():
 	extents_list.append(Vector2(extents.x, -extents.y))
 	extents_list.append(Vector2(-extents.x, extents.y))
 
-#func _process(delta):
-#
-
 func _physics_process(delta):
 	#increment counters
 
@@ -83,6 +80,14 @@ func _physics_process(delta):
 
 	linear_vel = move_and_slide(Vector2(0, linear_vel.y), FLOOR_NORMAL, SLOPE_SLIDE_STOP)
 	linear_vel.x = linear_velx.x
+	
+	var diagonal_diff = sqrt(2) * 16 - 16
+	var distance = linear_vel.x * delta
+	var ratio = distance / 32.0
+	$Sprite.rotate(ratio * PI/2 * sign(gravity.y))
+	var ratio_angle = $Sprite.rotation / (PI/2)
+	ratio_angle = ratio_angle - floor(ratio_angle)
+	$Sprite.position.y = sin(ratio_angle * PI) * (-diagonal_diff * sign(gravity.y))
 
 	# Detect Floor
 	if is_on_floor():

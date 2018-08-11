@@ -8,6 +8,8 @@ export var black_player_end = false
 export var number_id = 1
 
 var collected = false
+var time = 0
+var in_init = false
 
 func _ready():
 	$Label.text = str(number_id)
@@ -15,6 +17,16 @@ func _ready():
 		$ExitArea/Sprite.modulate = Color(100.0/255.0, 0, 211.0/255.0, 1.0);
 	else:
 		$ExitArea/Sprite.modulate = Color(200.0/255.0, 0, 211.0/255.0, 1.0);
+
+func init_done():
+	in_init = false
+
+func _process(delta):
+	time += delta
+	
+	if not collected and not in_init:
+		scale.x = sin(time * 3) * 0.125 + 0.7
+		scale.y = sin(time * 3) * 0.125 + 0.7
 		
 func _on_ExitArea_body_entered(body):
 	if body is player and body.collide_with_black == black_player_end:
@@ -25,8 +37,9 @@ func _on_ExitArea_body_entered(body):
 		else:
 			global.end_taken_white += 1
 		collected = true
-		visible = false
 		print("collected")
+		flux.to(self, 0.4, {scale_x = 0, scale_y = 0}, "absolute").ease("back","in").oncomplete.append(funcref(self, "oncomplete_visibleoff"))
+		flux.to(self, 0.4, {modulate_a = 0}, "absolute").ease("back","in")
 		
 		if check_level_complete():
 			if not exit_done:
@@ -37,6 +50,9 @@ func _on_ExitArea_body_entered(body):
 		else:
 			pass
 			#get_node("/root/globalscene").get_node("TeleportSound").play()
+
+func oncomplete_visibleoff():
+	visible = false
 
 func check_level_complete():
 	var complete = true;

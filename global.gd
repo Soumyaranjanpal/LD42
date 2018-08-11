@@ -18,12 +18,14 @@ var nb_collision = 0
 
 #levels
 var levels = ['res://Levels/Level1.tscn', \
-			'res://Levels/Level1.tscn', \
-			'res://Levels/Level1.tscn']
+			'res://Levels/Level11.tscn', \
+			'res://Levels/Level12.tscn']
 
 var levels_names = [ '', \
 			'1.0', \
 			'']
+			
+var levels_end_takens = [1, 1, 2]
 
 #functions
 func _ready():
@@ -43,7 +45,7 @@ func get_level_name():
 	return levels_names[current_level]
 
 func level_complete():
-	return end_taken == 2
+	return end_taken == levels_end_takens[current_level]
 
 func next_scene():
 	current_level = current_level + 1

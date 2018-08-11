@@ -1,4 +1,4 @@
-extends Area2D
+extends Node2D
 
 var exit_done = false
 onready var player = preload("res://Script/Player.gd")
@@ -11,8 +11,8 @@ var collected = false
 func _ready():
 	global.end_taken = 0
 	if black_player_end:
-		$Sprite.modulate *= 0.3
-		$Sprite.modulate.a = 1.0
+		$ExitArea/Sprite.modulate *= 0.3
+		$ExitArea/Sprite.modulate.a = 1.0
 		
 func _on_ExitArea_body_entered(body):
 	if body is player and body.collide_with_black == black_player_end:

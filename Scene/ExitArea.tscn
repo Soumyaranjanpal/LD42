@@ -8,8 +8,16 @@
 custom_solver_bias = 0.0
 extents = Vector2( 32, 32 )
 
-[node name="ExitArea" type="Area2D"]
+[node name="ExitAreaNode" type="Node2D" index="0"]
 
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+black_player_end = false
+
+[node name="ExitArea" type="Area2D" parent="." index="0"]
+
+rotation = 0.785398
+scale = Vector2( 0.707107, 0.707107 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -19,20 +27,19 @@ collision_layer = 3
 collision_mask = 3
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform" ]
-black_player_end = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
-
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="." index="1"]
+[node name="Sprite" type="Sprite" parent="ExitArea" index="0"]
 
 modulate = Color( 0, 1, 0.273438, 1 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Visibility" ]
+_sections_unfolded = [ "Transform", "Visibility" ]
 
-[connection signal="body_entered" from="." to="." method="_on_ExitArea_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea" index="1"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[connection signal="body_entered" from="ExitArea" to="." method="_on_ExitArea_body_entered"]
 
 

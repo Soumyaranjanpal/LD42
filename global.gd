@@ -9,6 +9,7 @@ var player = null
 
 var tilemap_collide_black = null
 var tilemap_collide_white = null
+var end_taken = 0
 
 #stats
 var nb_restart = 0
@@ -42,7 +43,7 @@ func get_level_name():
 	return levels_names[current_level]
 
 func level_complete():
-	return true
+	return end_taken == 2
 
 func next_scene():
 	current_level = current_level + 1

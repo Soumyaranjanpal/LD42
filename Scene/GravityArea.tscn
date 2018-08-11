@@ -12,8 +12,9 @@ extents = Vector2( 32, 32 )
 
 [node name="GravityAreaNode" type="Node2D"]
 
+z_index = 7
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Transform" ]
+_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
 
 [node name="GravityArea" type="Area2D" parent="." index="0"]
 

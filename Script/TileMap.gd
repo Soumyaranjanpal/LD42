@@ -7,6 +7,7 @@ var shadow_tilemap = null
 func _ready():
 	if collide_with_black:	
 		global.tilemap_collide_black = self
+		z_index = 5
 		shadow_tilemap = get_node("TileMap")
 		shadow_tilemap.modulate = Color(0, 0, 0, 167.0/255.0)
 		if shadow_tilemap != null:
@@ -26,7 +27,10 @@ func _ready():
 			elif black_tilemap.get_cellv(cell) == 2: #collision black to no collision black
 				set_cell(cell.x, cell.y, 4)
 			else:
-				set_cell(cell.x, cell.y, black_tilemap.get_cellv(cell))
+				var id = black_tilemap.get_cellv(cell)
+				set_cell(cell.x, cell.y, id)
+				if (id == 0):
+					black_tilemap.set_cell(cell.x, cell.y, -1)
 
 func set_cell_and_shadow(cell, id):
 	set_cell(cell.x, cell.y, id)

@@ -37,8 +37,10 @@ onready var global = get_node("/root/global")
 
 func _ready():
 	if not collide_with_black:
+		z_index = 6
 		global.player_white = weakref(self)
 		$Sprite.texture = load("res://Assets/tile.png")
+		$Sprite/SpriteShadow.modulate = Color(1,1,1,167.0/255.0)
 		player_input_name = "P2"
 		set_collision_layer_bit(1, true)
 		set_collision_mask_bit(1, true)

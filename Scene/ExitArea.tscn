@@ -10,10 +10,11 @@
 custom_solver_bias = 0.0
 extents = Vector2( 32, 32 )
 
-[node name="ExitAreaNode" type="Node2D" index="0"]
+[node name="ExitAreaNode" type="Node2D"]
 
+z_index = 7
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Transform" ]
+_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
 black_player_end = false
 number_id = 1
 

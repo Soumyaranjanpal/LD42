@@ -98,6 +98,7 @@ collide_with_black = true
 [node name="PlayerWhite" parent="." index="4" instance=ExtResource( 6 )]
 
 position = Vector2( 800.498, 348.579 )
+_sections_unfolded = [ "Collision", "Z Index" ]
 
 [node name="Camera2D" type="Camera2D" parent="." index="5"]
 

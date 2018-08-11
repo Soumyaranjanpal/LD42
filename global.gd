@@ -17,15 +17,14 @@ var time = 0
 var nb_collision = 0
 
 #levels
-var levels = ['res://Levels/Level1.tscn', \
-			'res://Levels/Level11.tscn', \
-			'res://Levels/Level12.tscn']
+var levels = ['res://Levels/Level1.tscn', 'res://Levels/Level11.tscn', 'res://Levels/Level12.tscn', 'res://Levels/Level13.tscn', 'res://Levels/Level14.tscn', 'res://Levels/Level15.tscn'\
+			]
 
-var levels_names = [ '', \
+var levels_names = [ '', '', '', \
 			'1.0', \
 			'']
 			
-var levels_end_takens = [1, 1, 2]
+var levels_end_takens = [1, 1, 2, 2, 2, 2]
 
 #functions
 func _ready():

@@ -16,7 +16,7 @@
 [ext_resource path="res://Scene/ButtonsP2.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Assets/tile.png" type="Texture" id=15]
 
-[node name="stage" type="Node"]
+[node name="stage" type="Node" index="0"]
 
 script = ExtResource( 1 )
 

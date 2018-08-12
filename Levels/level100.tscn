@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Script/Transition.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset.tres" type="TileSet" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Scene/ExitArea.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/visitor128.tres" type="DynamicFont" id=10]
 [ext_resource path="res://Scene/ButtonsP1.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scene/credits.tscn" type="PackedScene" id=12]
 
 [node name="stage" type="Node"]
 
@@ -186,6 +187,10 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Material", "Visibi
 
 position = Vector2( -64, 0 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
+
+[node name="Node2D" parent="Node2D" index="2" instance=ExtResource( 12 )]
+
+position = Vector2( 611, 514 )
 
 [connection signal="timeout" from="ExitAreas/Timer" to="ExitAreas/ExitArea" method="_on_Timer_timeout"]
 

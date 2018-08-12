@@ -9,7 +9,7 @@
 [ext_resource path="res://Assets/digital128.tres" type="DynamicFont" id=7]
 [ext_resource path="res://Assets/visitor32.tres" type="DynamicFont" id=8]
 
-[node name="Transition" type="Node2D" index="0"]
+[node name="Transition" type="Node2D"]
 
 z_index = 9
 _sections_unfolded = [ "Z Index" ]
@@ -378,7 +378,7 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
 custom_constants/shadow_as_outline = 2
-text = "P :Skip"
+text = "Skip: P"
 align = 2
 percent_visible = 1.0
 lines_skipped = 0

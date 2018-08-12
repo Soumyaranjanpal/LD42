@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Script/Transition.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset.tres" type="TileSet" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Assets/visitor64.tres" type="DynamicFont" id=11]
 [ext_resource path="res://Script/Highscore.gd" type="Script" id=12]
 [ext_resource path="res://Assets/visitor32.tres" type="DynamicFont" id=13]
+[ext_resource path="res://Scene/credits.tscn" type="PackedScene" id=14]
 
 [node name="stage" type="Node"]
 
@@ -139,14 +140,10 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 544, 544 )
 black_player_end = true
-collected = false
-in_init = false
 
 [node name="ExitAreaWhite" parent="ExitAreas" index="1" instance=ExtResource( 9 )]
 
 position = Vector2( 480, 544 )
-collected = false
-in_init = false
 
 [node name="Timer" type="Timer" parent="ExitAreas" index="2"]
 
@@ -271,7 +268,7 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
 custom_constants/shadow_as_outline = 2
-text = "Nb restart"
+text = "Nb restarts"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -326,7 +323,7 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
 custom_constants/shadow_as_outline = 2
-text = "Nb skip"
+text = "Nb skips"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -494,7 +491,7 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
 custom_constants/shadow_as_outline = 2
-text = "Collision"
+text = "Collisions"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -527,6 +524,12 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
+
+[node name="Node2D" parent="Highscore" index="11" instance=ExtResource( 14 )]
+
+position = Vector2( 354, 143 )
+scale = Vector2( 0.75, 0.75 )
+_sections_unfolded = [ "Transform" ]
 
 [connection signal="timeout" from="ExitAreas/Timer" to="ExitAreas/ExitAreaBlack" method="_on_Timer_timeout"]
 

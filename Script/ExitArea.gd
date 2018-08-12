@@ -44,6 +44,8 @@ func _on_ExitArea_body_entered(body):
 		print("collected")
 		flux.to(self, 0.4, {scale_x = 0, scale_y = 0}, "absolute").ease("back","in").oncomplete.append(funcref(self, "oncomplete_visibleoff"))
 		flux.to(self, 0.4, {modulate_a = 0}, "absolute").ease("back","in")
+		$ExitArea/Sprite/Particles2D.emitting = true
+		#$ExitArea/Sprite/Particles2D.restart()
 		
 		if check_level_complete():
 			if not exit_done:
@@ -56,7 +58,8 @@ func _on_ExitArea_body_entered(body):
 			#get_node("/root/globalscene").get_node("TeleportSound").play()
 
 func oncomplete_visibleoff():
-	visible = false
+	pass
+	#visible = false
 
 func check_level_complete():
 	var complete = true;

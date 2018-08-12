@@ -1,16 +1,69 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Script/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/tileblack.png" type="Texture" id=2]
 [ext_resource path="res://Assets/tile_shadow.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Audio/blacktile1.wav" type="AudioStream" id=4]
-[ext_resource path="res://Assets/Audio/blacktile2.wav" type="AudioStream" id=5]
-[ext_resource path="res://Assets/Audio/blacktile3.wav" type="AudioStream" id=6]
-[ext_resource path="res://Assets/Audio/blacktile4.wav" type="AudioStream" id=7]
-[ext_resource path="res://Assets/Audio/blacktile5.wav" type="AudioStream" id=8]
-[ext_resource path="res://Assets/Audio/blacktile6.wav" type="AudioStream" id=9]
-[ext_resource path="res://Assets/Audio/blacktile7.wav" type="AudioStream" id=10]
-[ext_resource path="res://Assets/Audio/whitetile2.wav" type="AudioStream" id=11]
+[ext_resource path="res://Assets/size_curvetexture.tres" type="Texture" id=4]
+[ext_resource path="res://Assets/tile_particle.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Audio/blacktile1.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/Audio/blacktile2.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/Audio/blacktile3.wav" type="AudioStream" id=8]
+[ext_resource path="res://Assets/Audio/blacktile4.wav" type="AudioStream" id=9]
+[ext_resource path="res://Assets/Audio/blacktile5.wav" type="AudioStream" id=10]
+[ext_resource path="res://Assets/Audio/blacktile6.wav" type="AudioStream" id=11]
+[ext_resource path="res://Assets/Audio/blacktile7.wav" type="AudioStream" id=12]
+[ext_resource path="res://Assets/Audio/whitetile2.wav" type="AudioStream" id=13]
+
+[sub_resource type="Gradient" id=2]
+
+offsets = PoolRealArray( 0, 1 )
+colors = PoolColorArray( 1, 1, 1, 0.657451, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=3]
+
+flags = 4
+gradient = SubResource( 2 )
+width = 2048
+
+[sub_resource type="ParticlesMaterial" id=4]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 180.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+initial_velocity_random = 1.0
+angular_velocity = 50.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 1.0
+scale = 0.7
+scale_random = 0.0
+scale_curve = ExtResource( 4 )
+color_ramp = SubResource( 3 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angle", "Angular Velocity", "Color", "Initial Velocity", "Scale" ]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -42,29 +95,34 @@ z_index = -1
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
+[node name="Particles2D" type="Particles2D" parent="Sprite" index="1"]
+
+z_index = -1
+emitting = true
+amount = 16
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 4 )
+texture = ExtResource( 5 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform" ]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 shape = SubResource( 1 )
 
 [node name="BlackTile1" type="AudioStreamPlayer" parent="." index="2"]
-
-stream = ExtResource( 4 )
-volume_db = -15.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
-
-[node name="BlackTile2" type="AudioStreamPlayer" parent="." index="3"]
-
-stream = ExtResource( 5 )
-volume_db = -15.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
-
-[node name="BlackTile3" type="AudioStreamPlayer" parent="." index="4"]
 
 stream = ExtResource( 6 )
 volume_db = -15.0
@@ -73,7 +131,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="BlackTile4" type="AudioStreamPlayer" parent="." index="5"]
+[node name="BlackTile2" type="AudioStreamPlayer" parent="." index="3"]
 
 stream = ExtResource( 7 )
 volume_db = -15.0
@@ -82,7 +140,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="BlackTile5" type="AudioStreamPlayer" parent="." index="6"]
+[node name="BlackTile3" type="AudioStreamPlayer" parent="." index="4"]
 
 stream = ExtResource( 8 )
 volume_db = -15.0
@@ -91,7 +149,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="BlackTile6" type="AudioStreamPlayer" parent="." index="7"]
+[node name="BlackTile4" type="AudioStreamPlayer" parent="." index="5"]
 
 stream = ExtResource( 9 )
 volume_db = -15.0
@@ -100,7 +158,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="BlackTile7" type="AudioStreamPlayer" parent="." index="8"]
+[node name="BlackTile5" type="AudioStreamPlayer" parent="." index="6"]
 
 stream = ExtResource( 10 )
 volume_db = -15.0
@@ -109,9 +167,27 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
+[node name="BlackTile6" type="AudioStreamPlayer" parent="." index="7"]
+
+stream = ExtResource( 11 )
+volume_db = -15.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="BlackTile7" type="AudioStreamPlayer" parent="." index="8"]
+
+stream = ExtResource( 12 )
+volume_db = -15.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
 [node name="WhiteTile1" type="AudioStreamPlayer" parent="." index="9"]
 
-stream = ExtResource( 5 )
+stream = ExtResource( 7 )
 volume_db = -15.0
 pitch_scale = 1.0
 autoplay = false
@@ -120,7 +196,7 @@ bus = "Master"
 
 [node name="WhiteTile2" type="AudioStreamPlayer" parent="." index="10"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 13 )
 volume_db = -15.0
 pitch_scale = 1.0
 autoplay = false

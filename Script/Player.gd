@@ -51,6 +51,7 @@ func _ready():
 		set_collision_layer_bit(0, false)
 		set_collision_mask_bit(0, false)
 	else:
+		$Sprite/Particles2D.texture = load("res://Assets/tileblack_particle.png")
 		global.player_black = weakref(self)
 	
 	extents = $CollisionShape2D.get_shape().get_extents()

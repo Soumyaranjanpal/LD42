@@ -77,7 +77,7 @@ _sections_unfolded = [ "Angle", "Color", "Initial Velocity", "Scale", "Spread" ]
 custom_solver_bias = 0.0
 extents = Vector2( 32, 32 )
 
-[node name="ExitAreaNode" type="Node2D" index="0"]
+[node name="ExitAreaNode" type="Node2D"]
 
 z_index = 7
 script = ExtResource( 1 )

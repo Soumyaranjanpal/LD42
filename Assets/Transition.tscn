@@ -1,59 +1,30 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Assets/visitor64.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Script/UI_token.gd" type="Script" id=2]
-[ext_resource path="res://Assets/TilesetDoor.tres" type="TileSet" id=3]
-[ext_resource path="res://Assets/Tileset.tres" type="TileSet" id=4]
-[ext_resource path="res://Assets/Audio/hit.wav" type="AudioStream" id=5]
-[ext_resource path="res://Script/DoorSound.gd" type="Script" id=6]
-[ext_resource path="res://Assets/ShadowTileset.tres" type="TileSet" id=7]
-[ext_resource path="res://Assets/digital128.tres" type="DynamicFont" id=8]
-[ext_resource path="res://Assets/visitor32.tres" type="DynamicFont" id=9]
+[ext_resource path="res://Script/UI_token.gd" type="Script" id=1]
+[ext_resource path="res://Assets/TilesetDoor.tres" type="TileSet" id=2]
+[ext_resource path="res://Assets/Tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://Assets/Audio/hit.wav" type="AudioStream" id=4]
+[ext_resource path="res://Script/DoorSound.gd" type="Script" id=5]
+[ext_resource path="res://Assets/ShadowTileset.tres" type="TileSet" id=6]
+[ext_resource path="res://Assets/digital128.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Assets/visitor32.tres" type="DynamicFont" id=8]
 
 [node name="Transition" type="Node2D"]
 
 z_index = 9
 _sections_unfolded = [ "Z Index" ]
 
-[node name="Label" type="Label" parent="." index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 1024.0
-margin_bottom = 116.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_x = 2
-custom_constants/line_spacing = 0
-custom_constants/shadow_offset_y = 2
-custom_constants/shadow_as_outline = 2
-text = "4.12"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Anchor", "Grow Direction", "Hint", "Margin", "Material", "Rect", "Visibility", "custom_colors", "custom_constants", "custom_fonts" ]
-
-[node name="HBoxContainer" type="Node2D" parent="." index="1"]
+[node name="HBoxContainer" type="Node2D" parent="." index="0"]
 
 position = Vector2( 992, 32 )
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
-[node name="LeftDoor" type="TileMap" parent="." index="2"]
+[node name="LeftDoor" type="TileMap" parent="." index="1"]
 
 z_index = 10
 mode = 0
-tile_set = ExtResource( 3 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -78,7 +49,7 @@ position = Vector2( 32, 576 )
 rotation = 3.14159
 z_index = -1
 mode = 0
-tile_set = ExtResource( 4 )
+tile_set = ExtResource( 3 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -98,19 +69,19 @@ _sections_unfolded = [ "Collision", "Material", "Transform", "Visibility", "Z In
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="LeftDoor" index="1"]
 
-stream = ExtResource( 5 )
+stream = ExtResource( 4 )
 volume_db = -15.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
-script = ExtResource( 6 )
+script = ExtResource( 5 )
 
 [node name="TileMap2" type="TileMap" parent="LeftDoor" index="2"]
 
 modulate = Color( 0, 0, 0, 0.657451 )
 mode = 0
-tile_set = ExtResource( 7 )
+tile_set = ExtResource( 6 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -144,7 +115,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 8 )
+custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0.934387, 0.804688, 1, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
@@ -172,7 +143,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 8 )
+custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0.955368, 0.744141, 0.992188, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
@@ -183,12 +154,12 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Visibility", "custom_colors", "custom_constants" ]
 
-[node name="RightDoor" type="TileMap" parent="." index="3"]
+[node name="RightDoor" type="TileMap" parent="." index="2"]
 
 position = Vector2( 1024, 0 )
 z_index = 10
 mode = 0
-tile_set = ExtResource( 3 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -212,7 +183,7 @@ modulate = Color( 1, 1, 1, 0.651922 )
 position = Vector2( -32, 0 )
 z_index = -1
 mode = 0
-tile_set = ExtResource( 4 )
+tile_set = ExtResource( 3 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -234,7 +205,7 @@ _sections_unfolded = [ "Collision", "Transform", "Visibility", "Z Index" ]
 
 modulate = Color( 0, 0, 0, 0.657451 )
 mode = 0
-tile_set = ExtResource( 7 )
+tile_set = ExtResource( 6 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -268,7 +239,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 8 )
+custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0.934387, 0.804688, 1, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
@@ -296,7 +267,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 8 )
+custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0.955368, 0.744141, 0.992188, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
@@ -307,14 +278,14 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Visibility", "custom_colors", "custom_constants" ]
 
-[node name="TileMap" type="TileMap" parent="." index="4"]
+[node name="TileMap" type="TileMap" parent="." index="3"]
 
 modulate = Color( 1, 1, 1, 0.657451 )
 position = Vector2( 0, 32 )
 rotation = 4.71239
 z_index = 9
 mode = 0
-tile_set = ExtResource( 4 )
+tile_set = ExtResource( 3 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -332,14 +303,14 @@ format = 1
 tile_data = PoolIntArray( 0, 6, 0, 65536, 6, 0, 131072, 6, 0, 196608, 6, 0, 262144, 6, 0, 327680, 6, 0, 393216, 6, 0, 458752, 6, 0, 524288, 6, 0, 589824, 6, 0, 655360, 6, 0, 720896, 6, 0, 786432, 6, 0, 851968, 6, 0, 917504, 6, 0, 983040, 6, 0 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
-[node name="TileMap2" type="TileMap" parent="." index="5"]
+[node name="TileMap2" type="TileMap" parent="." index="4"]
 
 modulate = Color( 1, 1, 1, 0.657451 )
 position = Vector2( 0, -32 )
 rotation = 1.5708
 z_index = 9
 mode = 0
-tile_set = ExtResource( 4 )
+tile_set = ExtResource( 3 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -357,7 +328,7 @@ format = 1
 tile_data = PoolIntArray( -1048567, 6, 0, -983031, 6, 0, -917495, 6, 0, -851959, 6, 0, -786423, 6, 0, -720887, 6, 0, -655351, 6, 0, -589815, 6, 0, -524279, 6, 0, -458743, 6, 0, -393207, 6, 0, -327671, 6, 0, -262135, 6, 0, -196599, 6, 0, -131063, 6, 0, -65527, 6, 0 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
-[node name="Label2" type="Label" parent="." index="6"]
+[node name="Label2" type="Label" parent="." index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -373,7 +344,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 9 )
+custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
@@ -384,5 +355,34 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
+
+[node name="Label3" type="Label" parent="." index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 1016.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_constants/shadow_as_outline = 2
+text = "P :Skip"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "custom_colors", "custom_constants", "custom_fonts" ]
 
 

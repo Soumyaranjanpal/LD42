@@ -17,12 +17,16 @@ var end_taken_white = 0
 var nb_restart = 0
 var time = 0
 var nb_collision = 0
+var nb_black = 0
+var nb_white = 0
+var nb_skip = 0
 
 #levels
 var levels = ['res://Levels/level10.tscn', 'res://Levels/level11.tscn', 'res://Levels/level12.tscn', 'res://Levels/level13.tscn', 'res://Levels/level14.tscn', 'res://Levels/level15.tscn'\
 			, 'res://Levels/level20.tscn', 'res://Levels/level21.tscn' \
 			, 'res://Levels/level30.tscn', 'res://Levels/level34.tscn' \
-			, 'res://Levels/level40.tscn', 'res://Levels/level42.tscn']
+			, 'res://Levels/level40.tscn', 'res://Levels/level42.tscn' \
+			, 'res://Levels/endscreen.tscn']
 
 var levels_names = [ '', '', '', \
 			'1.0', \
@@ -40,6 +44,7 @@ func _process(delta):
 		nb_restart += 1
 		call_deferred("_deferred_goto_scene", levels[current_level])
 	elif Input.is_action_just_pressed("next_level"):
+		nb_skip += 1
 		next_scene()
 
 func get_level_name():
@@ -51,6 +56,11 @@ func next_scene():
 		current_level = 0
 	if current_level == 1:
 		time = 0
+		nb_white = 0
+		nb_black = 0
+		nb_collision = 0
+		nb_skip = 0
+		nb_restart = 0
 	
 	call_deferred("_deferred_goto_scene", levels[current_level])
 

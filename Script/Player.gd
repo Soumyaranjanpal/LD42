@@ -181,9 +181,11 @@ func inverse_tile(tilemap, tile):
 	if tile_id == 3: #white no collide (black tilemap)
 		tilemap_black.set_cell_and_shadow(tile, 2)
 		tilemap_white.set_cell(tile.x, tile.y, 4)
+		global.nb_black += 1
 	elif tile_id == 4: #black no collide (white tilemap)
 		tilemap_black.set_cell_and_shadow(tile, 3)
 		tilemap_white.set_cell(tile.x, tile.y, 1)
+		global.nb_white += 1
 	
 	var sound_id = clamp(tile.y, 1, 7) - 1
 	if not collide_with_black:

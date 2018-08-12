@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/visitor64.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Script/UI_token.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Tileset.tres" type="TileSet" id=3]
 [ext_resource path="res://Assets/Audio/hit.wav" type="AudioStream" id=4]
 [ext_resource path="res://Script/DoorSound.gd" type="Script" id=5]
-[ext_resource path="res://Assets/visitor32.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Assets/ShadowTileset.tres" type="TileSet" id=6]
+[ext_resource path="res://Assets/digital128.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Assets/visitor32.tres" type="DynamicFont" id=8]
 
 [node name="Transition" type="Node2D"]
 
@@ -65,7 +67,7 @@ collision_layer = 4
 collision_mask = 4
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 65528, 2, 0, 65529, 2, 0, 65530, 2, 0, 65531, 2, 0, 65532, 2, 0, 65533, 2, 0, 65534, 2, 0, 65535, 2, 0, 131064, 0, 0, 131065, 0, 0, 131066, 0, 0, 131067, 0, 0, 131068, 0, 0, 131069, 0, 0, 131070, 0, 0, 131071, 2, 0, 196600, 1, 0, 196601, 1, 0, 196602, 1, 0, 196603, 1, 0, 196604, 1, 0, 196605, 1, 0, 196606, 0, 0, 196607, 2, 0, 262136, 1, 0, 262137, 1, 0, 262138, 1, 0, 262139, 1, 0, 262140, 1, 0, 262141, 1, 0, 262142, 0, 0, 262143, 2, 0, 327672, 1, 0, 327673, 1, 0, 327674, 1, 0, 327675, 1, 0, 327676, 1, 0, 327677, 2, 0, 327678, 0, 0, 327679, 2, 0, 393208, 1, 0, 393209, 1, 0, 393210, 1, 0, 393211, 1, 0, 393212, 1, 0, 393213, 0, 0, 393214, 0, 0, 393215, 2, 0, 458744, 1, 0, 458745, 1, 0, 458746, 1, 0, 458747, 1, 0, 458748, 1, 0, 458749, 1, 0, 458750, 0, 0, 458751, 2, 0, 524280, 1, 0, 524281, 1, 0, 524282, 1, 0, 524283, 1, 0, 524284, 1, 0, 524285, 1, 0, 524286, 0, 0, 524287, 2, 0, 589816, 2, 0, 589817, 2, 0, 589818, 2, 0, 589819, 2, 0, 589820, 2, 0, 589821, 2, 0, 589822, 2, 0, 589823, 2, 0 )
+tile_data = PoolIntArray( 65528, 2, 0, 65529, 2, 0, 65530, 2, 0, 65531, 2, 0, 65532, 2, 0, 65533, 2, 0, 65534, 2, 0, 65535, 2, 0, 131064, 2, 0, 131065, 0, 0, 131066, 0, 0, 131067, 0, 0, 131068, 0, 0, 131069, 0, 0, 131070, 0, 0, 131071, 2, 0, 196600, 2, 0, 196601, 0, 0, 196602, 1, 0, 196603, 1, 0, 196604, 1, 0, 196605, 1, 0, 196606, 0, 0, 196607, 2, 0, 262136, 2, 0, 262137, 1, 0, 262138, 0, 0, 262139, 1, 0, 262140, 1, 0, 262141, 0, 0, 262142, 1, 0, 262143, 2, 0, 327672, 2, 0, 327673, 1, 0, 327674, 1, 0, 327675, 0, 0, 327676, 0, 0, 327677, 2, 0, 327678, 1, 0, 327679, 2, 0, 393208, 2, 0, 393209, 1, 0, 393210, 1, 0, 393211, 0, 0, 393212, 0, 0, 393213, 1, 0, 393214, 1, 0, 393215, 2, 0, 458744, 2, 0, 458745, 1, 0, 458746, 0, 0, 458747, 1, 0, 458748, 1, 0, 458749, 0, 0, 458750, 1, 0, 458751, 2, 0, 524280, 2, 0, 524281, 0, 0, 524282, 1, 0, 524283, 1, 0, 524284, 1, 0, 524285, 1, 0, 524286, 0, 0, 524287, 2, 0, 589816, 2, 0, 589817, 2, 0, 589818, 2, 0, 589819, 2, 0, 589820, 2, 0, 589821, 2, 0, 589822, 2, 0, 589823, 2, 0 )
 _sections_unfolded = [ "Collision", "Transform", "Z Index" ]
 
 [node name="TileMap" type="TileMap" parent="LeftDoor" index="0"]
@@ -103,6 +105,85 @@ mix_target = 0
 bus = "Master"
 script = ExtResource( 5 )
 
+[node name="TileMap2" type="TileMap" parent="LeftDoor" index="2"]
+
+modulate = Color( 0, 0, 0, 0.657451 )
+mode = 0
+tile_set = ExtResource( 6 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 131065, 8, 0, 131066, 13, 0, 131067, 13, 0, 131068, 13, 0, 131069, 13, 0, 131070, 9, 0, 196601, 10, 0, 196606, 11, 0, 262137, 10, 0, 262141, 12, 0, 262142, 11, 0, 327673, 10, 0, 327676, 11, 0, 327678, 2, 0, 393209, 10, 0, 393213, 13, 0, 393214, 11, 0, 458745, 10, 0, 458750, 11, 0, 524280, 12, 0, 524281, 7, 0, 524282, 12, 0, 524283, 12, 0, 524284, 12, 0, 524285, 12, 0, 524286, 6, 0 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Counter" type="Label" parent="LeftDoor" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -288.0
+margin_top = 128.0
+margin_right = -74.0
+margin_bottom = 282.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.210938, 0.210938, 0.210938, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_constants/shadow_as_outline = 2
+text = "4"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_constants" ]
+
+[node name="Counter2" type="Label" parent="LeftDoor" index="4"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -288.0
+margin_top = 128.0
+margin_right = -74.0
+margin_bottom = 282.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.210938, 0.210938, 0.210938, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_constants/shadow_as_outline = 2
+text = "8"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility", "custom_colors", "custom_constants" ]
+
 [node name="RightDoor" type="TileMap" parent="." index="3"]
 
 position = Vector2( 1024, 0 )
@@ -123,7 +204,7 @@ collision_layer = 4
 collision_mask = 4
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 0, 2, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, 4, 2, 0, 5, 2, 0, 6, 2, 0, 7, 2, 0, 65536, 2, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 131072, 2, 0, 131073, 0, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 196608, 2, 0, 196609, 0, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 196615, 1, 0, 262144, 2, 0, 262145, 0, 0, 262146, 2, 0, 262147, 1, 0, 262148, 1, 0, 262149, 1, 0, 262150, 1, 0, 262151, 1, 0, 327680, 2, 0, 327681, 0, 0, 327682, 0, 0, 327683, 1, 0, 327684, 1, 0, 327685, 1, 0, 327686, 1, 0, 327687, 1, 0, 393216, 2, 0, 393217, 0, 0, 393218, 1, 0, 393219, 1, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393223, 1, 0, 458752, 2, 0, 458753, 0, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 524288, 2, 0, 524289, 2, 0, 524290, 2, 0, 524291, 2, 0, 524292, 2, 0, 524293, 2, 0, 524294, 2, 0, 524295, 2, 0 )
+tile_data = PoolIntArray( 0, 2, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, 4, 2, 0, 5, 2, 0, 6, 2, 0, 7, 2, 0, 65536, 2, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 2, 0, 131072, 2, 0, 131073, 0, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 0, 0, 131079, 2, 0, 196608, 2, 0, 196609, 1, 0, 196610, 0, 0, 196611, 1, 0, 196612, 1, 0, 196613, 0, 0, 196614, 1, 0, 196615, 2, 0, 262144, 2, 0, 262145, 1, 0, 262146, 2, 0, 262147, 0, 0, 262148, 0, 0, 262149, 1, 0, 262150, 1, 0, 262151, 2, 0, 327680, 2, 0, 327681, 1, 0, 327682, 1, 0, 327683, 0, 0, 327684, 0, 0, 327685, 1, 0, 327686, 1, 0, 327687, 2, 0, 393216, 2, 0, 393217, 1, 0, 393218, 0, 0, 393219, 1, 0, 393220, 1, 0, 393221, 0, 0, 393222, 1, 0, 393223, 2, 0, 458752, 2, 0, 458753, 0, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 0, 0, 458759, 2, 0, 524288, 2, 0, 524289, 2, 0, 524290, 2, 0, 524291, 2, 0, 524292, 2, 0, 524293, 2, 0, 524294, 2, 0, 524295, 2, 0 )
 _sections_unfolded = [ "Collision", "Transform", "Z Index" ]
 
 [node name="TileMap2" type="TileMap" parent="RightDoor" index="0"]
@@ -149,6 +230,28 @@ occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( 0, 6, 0, 65536, 6, 0, 131072, 6, 0, 196608, 6, 0, 262144, 6, 0, 327680, 6, 0, 393216, 6, 0, 458752, 6, 0, 524288, 6, 0 )
 _sections_unfolded = [ "Collision", "Transform", "Visibility", "Z Index" ]
+
+[node name="TileMap" type="TileMap" parent="RightDoor" index="1"]
+
+modulate = Color( 0, 0, 0, 0.657451 )
+mode = 0
+tile_set = ExtResource( 6 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 65537, 8, 0, 65538, 13, 0, 65539, 13, 0, 65540, 13, 0, 65541, 13, 0, 65542, 9, 0, 131073, 10, 0, 131078, 11, 0, 196609, 10, 0, 196610, 12, 0, 196614, 11, 0, 262145, 2, 0, 262147, 10, 0, 262150, 11, 0, 327681, 10, 0, 327682, 13, 0, 327686, 11, 0, 393217, 10, 0, 393222, 11, 0, 458753, 7, 0, 458754, 12, 0, 458755, 12, 0, 458756, 12, 0, 458757, 12, 0, 458758, 6, 0 )
+_sections_unfolded = [ "Occluder", "Transform", "Visibility" ]
 
 [node name="TileMap" type="TileMap" parent="." index="4"]
 
@@ -216,7 +319,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 6 )
+custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2

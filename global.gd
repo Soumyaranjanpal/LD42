@@ -87,6 +87,12 @@ func _deferred_goto_scene(path):
     #post
     post_load_scene()
 
+func get_level_nb():
+	return (global.current_level % 5) + 1
+
+func get_world_nb():
+	return ceil((global.current_level + 1) / 5.0)
+
 func post_load_scene():
 	end_taken_white = 0
 	end_taken_black = 0

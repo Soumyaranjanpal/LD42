@@ -9,11 +9,11 @@ onready var flux = get_node("/root/flux")
 onready var global = get_node("/root/global")
 
 func _ready():
-	var level_nb = (global.current_level % 5) + 1
+	var level_nb = global.get_level_nb()
 	if level_nb == 1:
 		get_node("/root/globalscene").reset()
 	elif level_nb >= 2:
-		get_node("/root/globalscene").activate_next(level_nb)
+		get_node("/root/globalscene").activate_next(global.get_world_nb(), level_nb)
 
 func _process(delta):
 	var nb_tokens = global.end_taken_black + global.end_taken_white

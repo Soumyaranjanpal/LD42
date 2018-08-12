@@ -19,10 +19,10 @@ var time = 0
 var nb_collision = 0
 
 #levels
-var levels = ['res://Levels/Level10.tscn', 'res://Levels/Level11.tscn', 'res://Levels/Level12.tscn', 'res://Levels/Level13.tscn', 'res://Levels/Level14.tscn', 'res://Levels/Level15.tscn'\
-			, 'res://Levels/Level20.tscn', 'res://Levels/Level21.tscn' \
-			, 'res://Levels/Level30.tscn', 'res://Levels/Level34.tscn' \
-			, 'res://Levels/Level40.tscn', 'res://Levels/Level42.tscn']
+var levels = ['res://Levels/level10.tscn', 'res://Levels/level11.tscn', 'res://Levels/level12.tscn', 'res://Levels/level13.tscn', 'res://Levels/level14.tscn', 'res://Levels/level15.tscn'\
+			, 'res://Levels/level20.tscn', 'res://Levels/level21.tscn' \
+			, 'res://Levels/level30.tscn', 'res://Levels/level34.tscn' \
+			, 'res://Levels/level40.tscn', 'res://Levels/level42.tscn']
 
 var levels_names = [ '', '', '', \
 			'1.0', \

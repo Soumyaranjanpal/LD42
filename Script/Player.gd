@@ -35,7 +35,11 @@ export var collide_with_black = false
 onready var flux = get_node("/root/flux")
 onready var global = get_node("/root/global")
 
+var tile_sounds = []
+var current_tile_sound_id = 0
+
 func _ready():
+	tile_sounds = [$BlackTile1, $BlackTile2, $BlackTile3, $BlackTile4, $BlackTile5, $BlackTile6, $BlackTile7]
 	if not collide_with_black:
 		z_index = 6
 		global.player_white = weakref(self)
@@ -179,5 +183,11 @@ func inverse_tile(tilemap, tile):
 	elif tile_id == 4: #black no collide (white tilemap)
 		tilemap_black.set_cell_and_shadow(tile, 3)
 		tilemap_white.set_cell(tile.x, tile.y, 1)
+	
+	var sound_id = clamp(tile.y, 1, 7) - 1
+	if not collide_with_black:
+		sound_id = 6 - sound_id
+	tile_sounds[sound_id].play()
+	#current_tile_sound_id = (current_tile_sound_id + 1) % 2
 	
 	

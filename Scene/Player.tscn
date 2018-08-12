@@ -1,8 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Script/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/tileblack.png" type="Texture" id=2]
 [ext_resource path="res://Assets/tile_shadow.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Audio/blacktile1.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Audio/blacktile2.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Audio/blacktile3.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/Audio/blacktile4.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/Audio/blacktile5.wav" type="AudioStream" id=8]
+[ext_resource path="res://Assets/Audio/blacktile6.wav" type="AudioStream" id=9]
+[ext_resource path="res://Assets/Audio/blacktile7.wav" type="AudioStream" id=10]
+[ext_resource path="res://Assets/Audio/whitetile2.wav" type="AudioStream" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -37,5 +45,86 @@ _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 shape = SubResource( 1 )
+
+[node name="BlackTile1" type="AudioStreamPlayer" parent="." index="2"]
+
+stream = ExtResource( 4 )
+volume_db = -15.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="BlackTile2" type="AudioStreamPlayer" parent="." index="3"]
+
+stream = ExtResource( 5 )
+volume_db = -15.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="BlackTile3" type="AudioStreamPlayer" parent="." index="4"]
+
+stream = ExtResource( 6 )
+volume_db = -15.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="BlackTile4" type="AudioStreamPlayer" parent="." index="5"]
+
+stream = ExtResource( 7 )
+volume_db = -15.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="BlackTile5" type="AudioStreamPlayer" parent="." index="6"]
+
+stream = ExtResource( 8 )
+volume_db = -15.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="BlackTile6" type="AudioStreamPlayer" parent="." index="7"]
+
+stream = ExtResource( 9 )
+volume_db = -15.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="BlackTile7" type="AudioStreamPlayer" parent="." index="8"]
+
+stream = ExtResource( 10 )
+volume_db = -15.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="WhiteTile1" type="AudioStreamPlayer" parent="." index="9"]
+
+stream = ExtResource( 5 )
+volume_db = -15.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="WhiteTile2" type="AudioStreamPlayer" parent="." index="10"]
+
+stream = ExtResource( 11 )
+volume_db = -15.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 

@@ -9,7 +9,7 @@ func _on_GravityArea_body_entered(body):
 		if collected:
 			return
 		collected = true
-		
+		$AudioStreamPlayer2D.play()
 		
 		var GravityArea = get_parent().get_parent().find_node('NormalGravityArea')
 		GravityArea.gravity_vec = -GravityArea.gravity_vec

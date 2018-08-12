@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/blacktile3.wav-590a976c36eca6b1ae8384cf34bc400a.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/blacktile3.wav"
+dest_files=[ "res://.import/blacktile3.wav-590a976c36eca6b1ae8384cf34bc400a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

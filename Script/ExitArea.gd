@@ -32,9 +32,13 @@ func _on_ExitArea_body_entered(body):
 	if body is player and body.collide_with_black == black_player_end:
 		if collected or (number_id - 1) != global.get_nb_end_taken(black_player_end):
 			return
+		$CollectBlack.pitch_scale = (global.get_nb_end_taken(true) + global.get_nb_end_taken(false) - 1) * 0.2 + 1
+		$CollectBlack.play()
 		if black_player_end:
+			#$CollectBlack.play()
 			global.end_taken_black += 1
 		else:
+			#$CollectWhite.play()
 			global.end_taken_white += 1
 		collected = true
 		print("collected")

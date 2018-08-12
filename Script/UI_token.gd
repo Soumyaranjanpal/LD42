@@ -11,7 +11,7 @@ onready var global = get_node("/root/global")
 func _ready():
 	var level_nb = global.get_level_nb()
 	if level_nb == 1:
-		get_node("/root/globalscene").reset()
+		get_node("/root/globalscene").reset(global.get_world_nb())
 	elif level_nb >= 2:
 		get_node("/root/globalscene").activate_next(global.get_world_nb(), level_nb)
 

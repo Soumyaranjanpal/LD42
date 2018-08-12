@@ -11,6 +11,10 @@ onready var global = get_node("/root/global")
 func _ready():
 	var world_nb = ceil((global.current_level + 1) / 5.0)
 	var level_nb = (global.current_level % 5) + 1
+	if level_nb == 1:
+		get_node("/root/globalscene").reset()
+	elif level_nb >= 2:
+		get_node("/root/globalscene").activate_next()
 	get_parent().get_node("Label").text = str(world_nb) + "." + str(level_nb)
 
 func _process(delta):

@@ -12,7 +12,7 @@
 [ext_resource path="res://Assets/visitor128.tres" type="DynamicFont" id=10]
 [ext_resource path="res://Scene/ButtonsP1.tscn" type="PackedScene" id=11]
 
-[node name="stage" type="Node" index="0"]
+[node name="stage" type="Node"]
 
 script = ExtResource( 1 )
 

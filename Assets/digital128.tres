@@ -1,6 +1,6 @@
 [gd_resource type="DynamicFont" load_steps=2 format=2]
 
-[ext_resource path="res://Assets/DJB Get Digital.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/digital-7 (mono).ttf" type="DynamicFontData" id=1]
 
 [resource]
 

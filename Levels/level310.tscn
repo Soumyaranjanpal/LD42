@@ -141,4 +141,6 @@ wait_time = 1.0
 one_shot = false
 autostart = false
 
+[connection signal="timeout" from="ExitAreas/Timer" to="ExitAreas/ExitAreaWhite" method="_on_Timer_timeout"]
+
 

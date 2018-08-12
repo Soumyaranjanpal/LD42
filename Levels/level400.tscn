@@ -137,14 +137,10 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 928, 96 )
 black_player_end = true
-collected = false
-in_init = false
 
 [node name="ExitAreaWhite" parent="ExitAreas" index="1" instance=ExtResource( 9 )]
 
 position = Vector2( 928, 160 )
-collected = false
-in_init = false
 
 [node name="Timer" type="Timer" parent="ExitAreas" index="2"]
 

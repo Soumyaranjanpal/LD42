@@ -37,8 +37,8 @@ func transition_out():
 	
 func oncomplete_lvlnbui():
 	$Camera2D/Transition/LeftDoor/Counter.text = str(counter_world + 1)
-	flux.to($Camera2D/Transition/LeftDoor/Counter2, 1, {modulate_a = 0}, "absolute").ease("quad","inout")
+	flux.to($Camera2D/Transition/LeftDoor/Counter2, 1, {modulate_a = 0.1}, "absolute").ease("quad","inout")
 	
 func oncomplete_nextlvl():
 	$Camera2D/Transition/RightDoor/Counter.text = str((global.get_level_nb() % 5) + 1)
-	flux.to($Camera2D/Transition/RightDoor/Counter2, 1, {modulate_a = 0}, "absolute").ease("quad","inout")
+	flux.to($Camera2D/Transition/RightDoor/Counter2, 1, {modulate_a = 0.1}, "absolute").ease("quad","inout")

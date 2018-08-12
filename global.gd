@@ -25,11 +25,8 @@ var nb_skip = 0
 var levels = ['res://Levels/level100.tscn', 'res://Levels/level110.tscn', 'res://Levels/level120.tscn', 'res://Levels/level130.tscn', 'res://Levels/level140.tscn' \
 			, 'res://Levels/level200.tscn', 'res://Levels/level210.tscn', 'res://Levels/level220.tscn', 'res://Levels/level225.tscn', 'res://Levels/level230.tscn' \
 			, 'res://Levels/level300.tscn', 'res://Levels/level310.tscn', 'res://Levels/level320.tscn', 'res://Levels/level330.tscn', 'res://Levels/level340.tscn' \
-			, 'res://Levels/level400.tscn', 'res://Levels/level410.tscn', 'res://Levels/endscreen.tscn']
-
-var levels_names = [ '', '', '', \
-			'1.0', \
-			'', '']
+			, 'res://Levels/level400.tscn', 'res://Levels/level410.tscn', 'res://Levels/level420.tscn', 'res://Levels/level430.tscn', 'res://Levels/endscreen.tscn' \
+			, 'res://Levels/level500.tscn']
 
 #functions
 func _ready():
@@ -45,9 +42,6 @@ func _process(delta):
 	elif Input.is_action_just_pressed("next_level"):
 		nb_skip += 1
 		next_scene()
-
-func get_level_name():
-	return levels_names[current_level]
 
 func next_scene():
 	current_level = current_level + 1

@@ -128,7 +128,7 @@ _sections_unfolded = [ "custom_colors", "custom_constants" ]
 
 [node name="Counter2" type="Label" parent="LeftDoor" index="4"]
 
-modulate = Color( 1, 1, 1, 0 )
+modulate = Color( 1, 1, 1, 0.0980392 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -252,7 +252,7 @@ _sections_unfolded = [ "custom_colors", "custom_constants" ]
 
 [node name="Counter2" type="Label" parent="RightDoor" index="3"]
 
-modulate = Color( 1, 1, 1, 0 )
+modulate = Color( 1, 1, 1, 0.0980392 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0

@@ -37,6 +37,8 @@ onready var global = get_node("/root/global")
 
 var tile_sounds = []
 var current_tile_sound_id = 0
+var time_since_last_wall_collision = 0
+var invincibility_time = 0.5
 
 func _ready():
 	tile_sounds = [$BlackTile1, $BlackTile2, $BlackTile3, $BlackTile4, $BlackTile5, $BlackTile6, $BlackTile7]
@@ -80,10 +82,12 @@ func _physics_process(delta):
 	else:
 		linear_velx = move_and_slide(Vector2(linear_vel.x, 0), FLOOR_NORMAL, SLOPE_SLIDE_STOP)
 		
-	if is_on_wall():
+	time_since_last_wall_collision += delta
+	if is_on_wall() and time_since_last_wall_collision > invincibility_time:
 		if global.camera.get_ref():
 			global.nb_collision += 1
 			global.camera.get_ref().shake(0.2, 15, 2.5)
+			time_since_last_wall_collision = 0
 
 	linear_vel = move_and_slide(Vector2(0, linear_vel.y), FLOOR_NORMAL, SLOPE_SLIDE_STOP)
 	linear_vel.x = linear_velx.x

@@ -185,6 +185,7 @@ _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Material", "Visibi
 [node name="Buttons" parent="Node2D" index="1" instance=ExtResource( 11 )]
 
 position = Vector2( -64, 0 )
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [connection signal="timeout" from="ExitAreas/Timer" to="ExitAreas/ExitArea" method="_on_Timer_timeout"]
 

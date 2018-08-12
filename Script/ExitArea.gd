@@ -7,9 +7,9 @@ onready var global = get_node("/root/global")
 export var black_player_end = false
 export var number_id = 1
 
-var collected = false
+export var collected = false
 var time = 0
-var in_init = false
+export var in_init = false
 
 func _ready():
 	$Label.text = str(number_id)

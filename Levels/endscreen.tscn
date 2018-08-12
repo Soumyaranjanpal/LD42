@@ -14,7 +14,7 @@
 [ext_resource path="res://Script/Highscore.gd" type="Script" id=12]
 [ext_resource path="res://Assets/visitor32.tres" type="DynamicFont" id=13]
 
-[node name="stage" type="Node" index="0"]
+[node name="stage" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -139,10 +139,14 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 544, 544 )
 black_player_end = true
+collected = false
+in_init = false
 
 [node name="ExitAreaWhite" parent="ExitAreas" index="1" instance=ExtResource( 9 )]
 
 position = Vector2( 480, 544 )
+collected = false
+in_init = false
 
 [node name="Timer" type="Timer" parent="ExitAreas" index="2"]
 

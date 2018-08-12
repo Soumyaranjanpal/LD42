@@ -22,11 +22,10 @@ var nb_white = 0
 var nb_skip = 0
 
 #levels
-var levels = ['res://Levels/level10.tscn', 'res://Levels/level11.tscn', 'res://Levels/level12.tscn', 'res://Levels/level13.tscn', 'res://Levels/level14.tscn', 'res://Levels/level15.tscn'\
-			, 'res://Levels/level20.tscn', 'res://Levels/level21.tscn' \
-			, 'res://Levels/level30.tscn', 'res://Levels/level34.tscn' \
-			, 'res://Levels/level40.tscn', 'res://Levels/level42.tscn' \
-			, 'res://Levels/endscreen.tscn']
+var levels = ['res://Levels/level100.tscn', 'res://Levels/level110.tscn', 'res://Levels/level120.tscn', 'res://Levels/level130.tscn', 'res://Levels/level140.tscn' \
+			, 'res://Levels/level200.tscn', 'res://Levels/level210.tscn', 'res://Levels/level220.tscn', 'res://Levels/level225.tscn', 'res://Levels/level230.tscn' \
+			, 'res://Levels/level300.tscn', 'res://Levels/level310.tscn', 'res://Levels/level320.tscn', 'res://Levels/level330.tscn', 'res://Levels/level340.tscn' \
+			, 'res://Levels/level400.tscn', 'res://Levels/level410.tscn', 'res://Levels/endscreen.tscn']
 
 var levels_names = [ '', '', '', \
 			'1.0', \

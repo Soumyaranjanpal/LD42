@@ -84,6 +84,8 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform", "Z Index" ]
 black_player_end = false
 number_id = 1
+collected = false
+in_init = false
 
 [node name="ExitArea" type="Area2D" parent="." index="0"]
 
